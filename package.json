@@ -1,7 +1,7 @@
 {
   "name": "objectus",
   "version": "1.0.0",
-  "description": "Node module that compiles a multiple directory tree of JSON and YML files into one object",
+  "description": "Node module that compiles an infinite tree of JSON and YML files into one object",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

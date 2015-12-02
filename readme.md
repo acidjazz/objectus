@@ -1,7 +1,9 @@
 objectus
 ========
 
-A Node module that compiles a multiple directory tree of JSON and YML files into one object
+A Node module that compiles an infinite tree of JSON and YML files into one object
+
+> **Note:** Still in early development
 
 
 ### Why?
