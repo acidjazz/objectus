@@ -25,5 +25,13 @@
   "bugs": {
     "url": "https://github.com/acidjazz/objectus/issues"
   },
-  "homepage": "https://github.com/acidjazz/objectus#readme"
+  "homepage": "https://github.com/acidjazz/objectus#readme",
+  "devDependencies": {
+    "gulp-coffee": "^2.3.1",
+    "gulp-notify": "^2.2.0"
+  },
+  "dependencies": {
+    "js-yaml": "^3.4.6",
+    "object-assign": "^4.0.1"
+  }
 }

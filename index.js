@@ -1,9 +1,12 @@
-var fs = require('fs');
-var assign = Object.assign || require('object-assign');
-var yaml = require('js-yaml');
-var json = require('json');
+var assign, fs, yaml;
 
-module.exports = function (path) {
+fs = require('fs');
+
+yaml = require('js-yaml');
+
+assign = Object.assign || require('object-assign');
+
+module.exports = function(path) {
   var data, root;
   data = exports.stack(path, {}, 'root');
   root = data.root;
@@ -40,5 +43,3 @@ exports.stack = function(dir, data, key) {
   }
   return data;
 };
-
-
