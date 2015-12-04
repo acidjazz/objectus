@@ -1,4 +1,4 @@
-var assign, fs, yaml;
+var Promise, assign, fs, yaml;
 
 fs = require('fs');
 
@@ -6,19 +6,26 @@ yaml = require('js-yaml');
 
 assign = Object.assign || require('object-assign');
 
-module.exports = function(path) {
-  var data, root;
-  data = exports.stack(path, {}, 'root');
-  root = data.root;
-  delete data.root;
-  data = assign(root, data);
-  return data;
+Promise = require('bluebird');
+
+module.exports = function(path, callback) {
+  return exports.stack(path, {}, 'root', function(error, result) {
+    var data, root;
+    if (error) {
+      callback(error, null);
+      return false;
+    }
+    root = result.root;
+    delete result.root;
+    data = assign(root, result);
+    return callback(false, data);
+  });
 };
 
-exports.stack = function(dir, data, key) {
+exports.stack = function(dir, data, key, callback) {
   var file, fileExt, fileFull, files, i, len;
   if (!fs.existsSync(dir)) {
-    console.log('Folder not found');
+    callback('Folder not found' + dir, null);
     process.exit();
     return false;
   }
@@ -27,7 +34,12 @@ exports.stack = function(dir, data, key) {
     file = files[i];
     fileFull = dir + '/' + file;
     if (fs.lstatSync(fileFull).isDirectory()) {
-      data = assign(data, this.stack(fileFull, data, file));
+      this.stack(fileFull, data, file, function(error, result) {
+        if (error) {
+          callback(error, null);
+        }
+        return data = assign(data, result);
+      });
     } else {
       fileExt = file.split('.');
       if (!(key in data)) {
@@ -41,5 +53,5 @@ exports.stack = function(dir, data, key) {
       }
     }
   }
-  return data;
+  return callback(false, data);
 };

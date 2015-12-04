@@ -27,10 +27,13 @@
   },
   "homepage": "https://github.com/acidjazz/objectus#readme",
   "devDependencies": {
+    "chai": "^3.4.1",
+    "expect": "^1.13.0",
     "gulp-coffee": "^2.3.1",
     "gulp-notify": "^2.2.0"
   },
   "dependencies": {
+    "bluebird": "^3.0.6",
     "js-yaml": "^3.4.6",
     "object-assign": "^4.0.1"
   }

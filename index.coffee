@@ -2,18 +2,22 @@
 fs = require 'fs'
 yaml = require 'js-yaml'
 assign = Object.assign || require('object-assign')
+Promise = require 'bluebird'
 
-module.exports = (path) ->
-  data = exports.stack(path, {}, 'root')
-  root = data.root
-  delete data.root
-  data = assign root, data
-  return data
+module.exports = (path, callback) ->
+  exports.stack path, {}, 'root', (error, result) ->
+    if error
+      callback error, null
+      return false
+    root = result.root
+    delete result.root
+    data = assign root, result
+    callback false, data
 
-exports.stack = (dir, data, key) ->
+exports.stack = (dir, data, key, callback) ->
 
   if !fs.existsSync(dir)
-    console.log 'Folder not found'
+    callback('Folder not found' + dir, null)
     process.exit()
     return false
 
@@ -23,7 +27,9 @@ exports.stack = (dir, data, key) ->
     fileFull = dir + '/' + file
 
     if fs.lstatSync(fileFull).isDirectory()
-      data = assign data, this.stack(fileFull, data, file)
+      this.stack fileFull, data, file, (error, result) ->
+        callback error, null if error
+        data = assign data, result
     else
       fileExt = file.split '.'
       data[key] = {} if !(key of data)
@@ -34,6 +40,6 @@ exports.stack = (dir, data, key) ->
       if fileExt[1] is 'yml' or fileExt[1] is 'yaml'
         data[key][fileExt[0]] = yaml.safeLoad fs.readFileSync fileFull, 'utf8'
 
-  return data
+  callback false, data
 
 
