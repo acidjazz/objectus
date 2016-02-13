@@ -53,6 +53,8 @@ exports.stack = function(dir, data, key, callback) {
           data[key][fileExt[0]] = yaml.safeLoad(fs.readFileSync(fileFull, 'utf8'));
         } catch (error1) {
           e = error1;
+          console.log('YAML ERROR: ' + fileFull);
+          console.log('YAML ERROR: ' + e.message);
           console.log(e);
         }
       }

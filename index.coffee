@@ -41,6 +41,8 @@ exports.stack = (dir, data, key, callback) ->
         try
           data[key][fileExt[0]] = yaml.safeLoad fs.readFileSync fileFull, 'utf8'
         catch e
+          console.log 'YAML ERROR: ' + fileFull
+          console.log 'YAML ERROR: ' + e.message
           console.log e
 
   callback false, data
