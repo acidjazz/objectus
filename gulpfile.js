@@ -7,7 +7,6 @@ gulp.task('coffee', function() {
   gulp.src('**/*.coffee')
     .pipe(coffee({bare: true})
       .on('error', notify.onError(function(error) {
-        console.log(error);
         return {title: "Coffee error", message: error.message + "\r\n" + error.filename + ':' + error.location.first_line, sound: 'Pop'};
       }))
     )

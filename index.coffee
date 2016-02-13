@@ -38,7 +38,10 @@ exports.stack = (dir, data, key, callback) ->
       if fileExt[1] is 'json'
         data[key][fileExt[0]] = JSON.parse fs.readFileSync fileFull, 'utf8'
       if fileExt[1] is 'yml' or fileExt[1] is 'yaml'
-        data[key][fileExt[0]] = yaml.safeLoad fs.readFileSync fileFull, 'utf8'
+        try
+          data[key][fileExt[0]] = yaml.safeLoad fs.readFileSync fileFull, 'utf8'
+        catch e
+          console.log e
 
   callback false, data
 

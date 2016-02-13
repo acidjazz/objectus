@@ -23,7 +23,7 @@ module.exports = function(path, callback) {
 };
 
 exports.stack = function(dir, data, key, callback) {
-  var file, fileExt, fileFull, files, i, len;
+  var e, error1, file, fileExt, fileFull, files, i, len;
   if (!fs.existsSync(dir)) {
     callback('Folder not found' + dir, null);
     process.exit();
@@ -49,7 +49,12 @@ exports.stack = function(dir, data, key, callback) {
         data[key][fileExt[0]] = JSON.parse(fs.readFileSync(fileFull, 'utf8'));
       }
       if (fileExt[1] === 'yml' || fileExt[1] === 'yaml') {
-        data[key][fileExt[0]] = yaml.safeLoad(fs.readFileSync(fileFull, 'utf8'));
+        try {
+          data[key][fileExt[0]] = yaml.safeLoad(fs.readFileSync(fileFull, 'utf8'));
+        } catch (error1) {
+          e = error1;
+          console.log(e);
+        }
       }
     }
   }
