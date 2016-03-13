@@ -32,7 +32,7 @@ Unify data of legible format for various reasons
 
 ### Installation
 
-``bash
+```bash
 $ npm install objectus
 ```
 
