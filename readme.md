@@ -1,5 +1,8 @@
 objectus
 ========
+
+Compile a recursive directory tree of JSON and YML files into an object
+
 [![npm version](https://badge.fury.io/js/objectus.svg)](https://badge.fury.io/js/objectus)
 [![tests](http://img.shields.io/travis/acidjazz/objectus/master.svg?style=flat)](https://travis-ci.org/acidjazz/objectus)
 [![Dependency Status](https://gemnasium.com/acidjazz/objectus.svg)](https://gemnasium.com/acidjazz/objectus)
@@ -7,7 +10,6 @@ objectus
 
 [![NPM](https://nodei.co/npm/objectus.png)](https://npmjs.org/package/objectus)
 
-Compile a recursive directory tree of JSON and YML files into an object
 
 > **Note:** Still in early development
 
