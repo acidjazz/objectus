@@ -39,7 +39,7 @@ $ npm install objectus
 
 ### Basic Usage
 
-Say you have all your copy in `dat/` and your meta tags in `dat/meta.yml` looking like
+Say you have all your copy in the folder `dat/` and your meta tags in `dat/meta.yml` looking like
 
 ```yaml
 ---
@@ -55,6 +55,7 @@ If you ran
 objectus('dat/', function(error, result) {
   console.log(result);
 });
+```
 
 You would see in your console
 
