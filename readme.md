@@ -37,6 +37,7 @@ $ npm install objectus
 
 ### Basic Usage
 
+
 Say you have all your config/opy in the folder `dat/` and your meta tags in `dat/meta.yml` looking like
 
 ```yaml
@@ -67,7 +68,7 @@ meta: {
 }
 ```
 
-Now throw in some colors you need accessed in HTML and CSS in  `dat/guide/` called `colors.yml` and
+Now throw in some colors you need accessed in HTML and CSS in `dat/guide/` called `colors.yml` and
 
 ```yml
 ---
@@ -75,7 +76,7 @@ blue1: "#0000FF"
 red1: "#FF0000"
 ```
 
-.. should stack and then result in
+..will stack and then result in
 
 ```javascript
 meta: {
@@ -93,3 +94,5 @@ guide: {
 }
 
 ```
+
+> Folders become keys and values are files, so watch out naming a key in a folder the same name of a directory in that folder, because one will overwrite the other
