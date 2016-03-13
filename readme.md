@@ -1,13 +1,5 @@
 objectus
 ========
-
-```javascript
-objectus('dat/', function(error, result) {
-  if (error) { console.log(error); }
-  console.log(result);
-});
-```
-
 [![npm version](https://badge.fury.io/js/objectus.svg)](https://badge.fury.io/js/objectus)
 [![tests](http://img.shields.io/travis/acidjazz/objectus/master.svg?style=flat)](https://travis-ci.org/acidjazz/objectus)
 [![Dependency Status](https://gemnasium.com/acidjazz/objectus.svg)](https://gemnasium.com/acidjazz/objectus)
@@ -18,6 +10,18 @@ objectus('dat/', function(error, result) {
 Compile a recursive directory tree of JSON and YML files into an object
 
 > **Note:** Still in early development
+
+
+### Quick Example
+
+```javascript
+var objectus = require('objectus');
+
+objectus('dat/', function(error, result) {
+  if (error) { console.log(error); }
+  console.log(result);
+});
+```
 
 ### Why?
 
