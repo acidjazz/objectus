@@ -142,6 +142,79 @@ Make sure when you are watching files that are compiled passing objectus, you re
   gulp.watch('dat/**/*', ['objectus','stylus','jade']);
 ```
 
+
+Now lets get fancy, here is a more robust use involving browserSync, gulp-notify, and gulp-sourcemaps
+
+```javascript
+
+var gulp = require('gulp');
+var sync = require('browser-sync').create();
+var notify = require('gulp-notify');
+var stylus = require('gulp-stylus');
+var jade = require('gulp-jade');
+var sourcemaps = require('gulp-sourcemaps');
+
+var objectus = require('objectus');
+
+objectus('dat/', function(error, result) {
+  if (error) {
+    notify(error);
+  }
+  data = result;
+});
+
+gulp.task('objectus', function() {
+  objectus('dat/', function(error, result) {
+    if (error) {
+      notify(error);
+    }
+    data = result;
+  });
+  return true;
+});
+
+gulp.task('stylus', function() {
+  gulp.src('sty/main.styl')
+    .pipe(sourcemaps.init())
+    .pipe(stylus({ rawDefine: { data: data } })
+    .on('error', notify.onError(function(error) {
+      return {title: "Stylus error: " + error.name, message: error.message, sound: 'Pop' };
+    })))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('pub/css'))
+    .pipe(sync.stream());
+});
+
+
+gulp.task('jade', function() {
+  gulp.src('tpl/**/index.jade')
+    .pipe(jade({pretty: true, locals: {data: data}})
+      .on('error', notify.onError(function(error) {
+        return {title: "Jade error: " + error.name, message: error.message, sound: 'Pop' };
+      }))
+      .on('error', function(error) {
+        console.log(error);
+      })
+    )
+    .pipe(gulp.dest('pub'))
+    .pipe(sync.stream());
+});
+
+gulp.task('sync', function() {
+  sync.init({
+    server: {
+      baseDir: 'pub/',
+    }
+  });
+
+  gulp.watch('dat/**/*', ['objectus','stylus','jade']);
+  gulp.watch('sty/**/*.styl', ['stylus']);
+  gulp.watch('tpl/**/*.jade', ['jade']);
+
+});
+
+```
+
 ### Why call it __objectus__
 
 The origin of the word __object__
