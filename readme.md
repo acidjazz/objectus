@@ -2,18 +2,10 @@ objectus
 ========
 
 ```javascript
-
 objectus('dat/', function(error, result) {
-
-  if (error) {
-    console.log(error);
-  }
-
+  if (error) { console.log(error); }
   console.log(result);
-
 });
-
-
 ```
 
 [![npm version](https://badge.fury.io/js/objectus.svg)](https://badge.fury.io/js/objectus)
