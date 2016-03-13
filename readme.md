@@ -11,9 +11,8 @@ objectus
 
 
 
-A Node module that compiles an infinite directory tree of JSON and YML files into one object
+Compile an infinite directory tree of JSON and YML files into one object
 
-> **Note:** Still in early development
 
 
 ### Why?
@@ -22,7 +21,7 @@ This module is to unify data in a legible format for various reasons
 
 * Allow the possibility of others to modify copy who are not familiar w/ the technology in use
 * Unify data that is needed in various preprocessors like meta data, colors, fonts, etc.
-  * Ex: I define [colors](https://github.com/acidjazz/sake/blob/master/dat/colors.yml) and [fonts](https://github.com/acidjazz/sake/blob/master/dat/fonts.yml) here and here to populate a style guide here , and then use the variables throughout the HTML and CSS preprocessors which are passed in here
+> **Example**: I define [colors](https://github.com/acidjazz/sake/blob/master/dat/colors.yml) and [fonts](https://github.com/acidjazz/sake/blob/master/dat/fonts.yml) here and here to populate a style guide here , and then use the variables throughout the HTML and CSS preprocessors which are passed in here
 
 
 
