@@ -100,7 +100,7 @@ guide: {
 ### Gulp Integration 
 
 
-Start with grabing our data, then a task to re-grab our data
+Start with grabbing our data, then a task to do the same
 
 ```javascript
 
@@ -126,7 +126,7 @@ gulp.task('stylus', function() {
 });
 ```
 
-How about an HTML template engine like Jade / the new name Pug
+How about an HTML template engine like [Jade](https://github.com/pugjs/jade) / [the new name](https://github.com/scrooloose/syntastic/pull/1704) Pug
 
 ```javascript
 gulp.task('jade', function() {
@@ -141,7 +141,6 @@ Make sure when you are watching files that are compiled passing objectus, you re
 ```javascript
   gulp.watch('dat/**/*', ['objectus','stylus','jade']);
 ```
-
 
 ### Why call it __objectus__
 
