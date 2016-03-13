@@ -11,14 +11,19 @@ objectus
 
 
 
-A Node module that compiles an infinite tree of JSON and YML files into one object
+A Node module that compiles an infinite directory tree of JSON and YML files into one object
 
 > **Note:** Still in early development
 
 
 ### Why?
 
-This tool is to help provide transparency and flexibility between a developers project and his/her client
+This module is to unify data in a legible format for various reasons
+
+* Allow the possibility of others to modify copy who are not familiar w/ the technology in use
+* Unify data that is needed in various preprocessors like meta data, colors, fonts, etc.
+  * For example I use colors and fonts here and here to populate a style guide here , and then use the variables throughout the HTML and CSS preprocessors which are passed in here
+
 
 
 ### Installation
