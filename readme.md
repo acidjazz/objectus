@@ -38,7 +38,7 @@ $ npm install objectus
 ### Basic Usage
 
 
-Say you have all your config/opy in the folder `dat/` and your meta tags in `dat/meta.yml` looking like
+Say you have all your config & copy in the folder `dat/` and your meta tags in `dat/meta.yml` looking like
 
 ```yaml
 ---
