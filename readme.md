@@ -4,6 +4,8 @@ objectus
 [![npm version](https://badge.fury.io/js/objectus.svg)](https://badge.fury.io/js/objectus)
 [![tests](http://img.shields.io/travis/acidjazz/objectus/master.svg?style=flat)](https://travis-ci.org/acidjazz/objectus)
 [![dependencies](http://img.shields.io/gemnasium/acidjazz/objectus.svg?style=flat)](https://gemnasium.com/acidjazz/objectus)
+[![Dependency Status](https://gemnasium.com/acidjazz/objectus.svg)](https://gemnasium.com/acidjazz/objectus)
+
 ![Licence](https://img.shields.io/npm/l/objectus.svg?style=flat-square&label=licence)
 
 
