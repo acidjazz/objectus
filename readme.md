@@ -116,7 +116,7 @@ gulp.task('objectus', function() {
 });
 ```
 
-Now lets pass our data into a CSS preprocessor, say Stylus
+Now lets pass our data into a CSS preprocessor, say [Stylus](http://stylus-lang.com/)
 
 ```javascript
 gulp.task('stylus', function() {
