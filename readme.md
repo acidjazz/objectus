@@ -11,11 +11,6 @@ Compile a recursive directory tree of JSON and YML files into an object
 [![NPM](https://nodei.co/npm/objectus.png)](https://npmjs.org/package/objectus)
 
 
-> **Note:** Still in early development
-
-
-### Quick Example
-
 ```javascript
 var objectus = require('objectus');
 
@@ -33,14 +28,11 @@ This module is to unify data of legible format for various reasons
 * Unify data that is needed in various preprocessors like meta data, colors, fonts, etc.
   * Ex: I define [colors](https://github.com/acidjazz/sake/blob/master/dat/colors.yml) and [fonts](https://github.com/acidjazz/sake/blob/master/dat/fonts.yml) to [populate](https://github.com/acidjazz/sake/blob/master/sty/guide.styl#L4-L10) a [style guide](http://www.designsakestudio.com/guide/), and then use them throughout the [HTML](https://github.com/acidjazz/sake/blob/master/tpl/guide/index.jade#L11) and [CSS](https://github.com/acidjazz/sake/blob/master/sty/main.styl#L18) preprocessors
 
-
-
 ### Installation
-
-TBA
+``bash
+npm install objectus
+```
 
 ### Usage
-
-TBA
 
 
