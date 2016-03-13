@@ -100,18 +100,15 @@ guide: {
 ### Gulp Integration 
 
 
-Starting with a task  to get our data in a global variable to share with others
+Starting with a task to get our data in a global variable to share with others, also grab our data upon execution for any immediate needs
 
 ```javascript
+
+objectus('dat/', function(error, result) { data = result; });
+
 gulp.task('objectus', function() {
   objectus('dat/', function(error, result) {
-
-    if (error) {
-      gulp-notify(error);
-    }
-
     data = result;
-
   });
   return true;
 });
