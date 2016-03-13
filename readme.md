@@ -99,9 +99,9 @@ guide: {
 
 
 
-### Why __objectus__
+### Why call it __objectus__
 
-The origin of __object__
+The origin of the word __object__
 
-> Middle English, from Medieval Latin objectum, from Latin, neuter of objectus, past participle of obicere to throw in the way, present, hinder, from ob- in the way + jacere to throw
+> Middle English, from Medieval Latin objectum, from Latin, neuter of __objectus__, past participle of obicere to throw in the way, present, hinder, from ob- in the way + jacere to throw
 
