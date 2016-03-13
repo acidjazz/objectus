@@ -61,10 +61,10 @@ You would see in your console
 
 ```json
    meta: {
-      url: 'http://www.example.url/',
-      meta: {
-        title: 'website title',
-        description: 'website description'
+      "url": "http://www.example.url/",
+      "meta": {
+        "title": "website title",
+        "description": "website description"
       }
     }
 ```
