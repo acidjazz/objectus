@@ -95,4 +95,4 @@ guide: {
 
 ```
 
-> *Note*: Folders become _keys_ and values are the objectus'ed _files_, so specifying a key in a folder the same name of a directory in the same will result in one overwriting the other
+> __Note__: Folders become keys and values are the objectus'ed files, so specifying a key in a folder the same name of a directory in the same will result in one overwriting the other
