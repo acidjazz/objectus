@@ -100,9 +100,11 @@ guide: {
 ### Gulp Integration 
 
 
-Starting with a task to get our data in a global variable to share with others, also grab our data upon execution for any immediate needs
+Start with grabing our data, then a task to re-grab our data
 
 ```javascript
+
+var objectus = reuqire('objectus');
 
 objectus('dat/', function(error, result) { data = result; });
 
@@ -124,7 +126,7 @@ gulp.task('stylus', function() {
 });
 ```
 
-How about an HTML template engine like Jade (now being renamed to pug)
+How about an HTML template engine like Jade / the new name Pug
 
 ```javascript
 gulp.task('jade', function() {
@@ -133,6 +135,13 @@ gulp.task('jade', function() {
     .pipe(gulp.dest('pub'))
 });
 ```
+
+Make sure when you are watching files that are compiled passing objectus, you re-compile them afterwards
+
+```javascript
+  gulp.watch('dat/**/*', ['objectus','stylus','jade']);
+```
+
 
 ### Why call it __objectus__
 
