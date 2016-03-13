@@ -97,7 +97,45 @@ guide: {
 
 > __Note__: Folders become keys and values are the objectus'ed files, so specifying a key in a folder the same name of a directory in the same will result in one overwriting the other
 
+### Gulp Integration 
 
+
+Starting with a task  to get our data in a global variable to share with others
+
+```javascript
+gulp.task('objectus', function() {
+  objectus('dat/', function(error, result) {
+
+    if (error) {
+      gulp-notify(error);
+    }
+
+    data = result;
+
+  });
+  return true;
+});
+```
+
+Now lets pass our data into a CSS preprocessor, say Stylus
+
+```javascript
+gulp.task('stylus', function() {
+  gulp.src('sty/main.styl')
+    .pipe(stylus({ rawDefine: { data: data } })
+    .pipe(gulp.dest('pub/css'))
+});
+```
+
+How about an HTML template engine like Jade (now being renamed to pug)
+
+```javascript
+gulp.task('jade', function() {
+  gulp.src('tpl/**/index.jade')
+    .pipe(jade({pretty: true, locals: {data: data}}))
+    .pipe(gulp.dest('pub'))
+});
+```
 
 ### Why call it __objectus__
 
