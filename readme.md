@@ -57,7 +57,7 @@ objectus('dat/', function(error, result) {
 });
 ```
 
-You would see in your console
+You would see something like
 
 ```json
    meta: {
@@ -69,3 +69,27 @@ You would see in your console
     }
 ```
 
+Now throw in some colors you need accessed in HTML and CSS in  `dat/guide/` called `colors.yml` and
+
+```yml
+---
+blue1: "#0000FF"
+red1: "#FF0000"
+```
+
+```json
+ meta: {
+    "url": "http://www.example.url/",
+    "meta": {
+      "title": "website title",
+      "description": "website description"
+    }
+  },
+  guide: {
+    colors: {
+      "blue1": "#0000FF",
+      "red1": "#FF0000"
+    }
+  }
+
+```
