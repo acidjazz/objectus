@@ -143,7 +143,7 @@ Make sure when you are watching files that are compiled passing objectus, you re
 ```
 
 
-Now lets get fancy, here is a more robust use involving browserSync, gulp-notify, and gulp-sourcemaps
+Now lets get fancy, here is a more detailed example involving browserSync, gulp-notify, and gulp-sourcemaps
 
 ```javascript
 
@@ -212,6 +212,8 @@ gulp.task('sync', function() {
   gulp.watch('tpl/**/*.jade', ['jade']);
 
 });
+
+gulp.task('default', ['objectus','stylus', 'jade']);
 
 ```
 
