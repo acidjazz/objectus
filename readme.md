@@ -96,3 +96,12 @@ guide: {
 ```
 
 > __Note__: Folders become keys and values are the objectus'ed files, so specifying a key in a folder the same name of a directory in the same will result in one overwriting the other
+
+
+
+### Why __objectus__
+
+The origin of __object__
+
+> Middle English, from Medieval Latin objectum, from Latin, neuter of objectus, past participle of obicere to throw in the way, present, hinder, from ob- in the way + jacere to throw
+
