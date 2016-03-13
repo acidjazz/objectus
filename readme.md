@@ -77,6 +77,8 @@ blue1: "#0000FF"
 red1: "#FF0000"
 ```
 
+.. should stack and then result in
+
 ```javascript
 meta: {
   url: "http://www.example.url/",
