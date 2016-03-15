@@ -147,7 +147,7 @@ Same simplicity, just dump our data somewhere to pick it up client-side
 fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 'utf8')
 ```
 ```html
-<script type="text/javascript" src="jst/data.js" />
+<script type="text/javascript" src="/jst/data.js" />
 ```
 
 #### Gulp Integration - [Jade](https://github.com/pugjs/jade) / [the new name](https://github.com/scrooloose/syntastic/pull/1704) Pug
@@ -166,7 +166,9 @@ Make sure when you are watching files that are compiled passing objectus, you re
 gulp.watch('dat/**/*', ['objectus','stylus','jade']);
 ```
 
-Now lets get fancy, here is a more detailed example with Stylus and Jade involving browserSync, gulp-notify, and gulp-sourcemaps
+### Robust gulp example
+
+Here is a more detailed example with Stylus and Jade involving browserSync, gulp-notify, and gulp-sourcemaps
 
 ```javascript
 
