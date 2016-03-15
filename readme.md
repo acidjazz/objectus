@@ -143,9 +143,9 @@ gulp.task('stylus', function() {
 });
 ```
 
-### [sass](https://github.com/sass/node-sass) (node-sass)
+#### [Sass](https://github.com/sass/node-sass) (node-sass)
 
-In your sass task we'll write to a file somewhere you can `@import` it, make sure this is done before the sass compilation
+We'll write to a file somewhere you can `@import` it, make sure this is done before the sass compilation
 
 ```javascript
 fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 'utf8')
@@ -155,7 +155,7 @@ fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 
 ```
 > *Note*: If you know of a better way of doing this please let me know
 
-### Javascript / CoffeeScript
+#### Javascript / CoffeeScript
 
 Same simplicity, just dump our data somewhere to pick it up client-side
 
@@ -168,6 +168,8 @@ fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 
 
 #### [Jade](https://github.com/pugjs/jade) / [the new name](https://github.com/scrooloose/syntastic/pull/1704) Pug
 
+Jade has a locals parameter, perfect 
+
 ```javascript
 gulp.task('jade', function() {
   gulp.src('tpl/**/index.jade')
@@ -175,7 +177,7 @@ gulp.task('jade', function() {
     .pipe(gulp.dest('pub'))
 });
 ```
-### Detailed Gulp Example
+#### Detailed Example
 
 Here is a more detailed example with Stylus and Jade involving browserSync, gulp-notify, and gulp-sourcemaps
 
