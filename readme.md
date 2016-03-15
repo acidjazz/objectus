@@ -101,7 +101,7 @@ guide: {
 
 ### Integration 
 
-#### Gulp
+#### [Gulp](https://github.com/gulpjs/gulp)
 Start with grabbing our data, then a task to do the same
 
 ```javascript
@@ -124,12 +124,9 @@ Now you have `data` as a global object you can pass into any task needed. Make s
 gulp.watch('dat/**/*', ['objectus','stylus','jade']);
 ```
 
-
-
 #### [Stylus](http://stylus-lang.com/)
 
 Stylus has a define parameter you can pass, make the 3rd option true so that it's pass properly as an object
-
 
 ```javascript
 stylus(str)
@@ -145,7 +142,6 @@ gulp.task('stylus', function() {
     .pipe(gulp.dest('pub/css'))
 });
 ```
-
 
 ### [sass](https://github.com/sass/node-sass) (node-sass)
 
