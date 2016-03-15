@@ -129,7 +129,7 @@ gulp.task('stylus', function() {
 
 ### Gulp Integration - [sass](https://github.com/sass/node-sass) (node-sass)
 
-In your sass task just write our data to a file somewhere you can `@import` it
+In your sass task we'll write to a file somewhere you can `@import` it, make sure this is done before the sass compilation
 
 ```javascript
 fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 'utf8')
@@ -166,7 +166,7 @@ Make sure when you are watching files that are compiled passing objectus, you re
 gulp.watch('dat/**/*', ['objectus','stylus','jade']);
 ```
 
-### Robust gulp example
+### Detailed Gulp Example
 
 Here is a more detailed example with Stylus and Jade involving browserSync, gulp-notify, and gulp-sourcemaps
 
