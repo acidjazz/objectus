@@ -118,7 +118,7 @@ gulp.task('objectus', function() {
 });
 ```
 
-Now you have "data" as a global object you can pass into any task needed. Make sure when you are watching files that are compiled passing objectus, you re-compile them afterwards
+Now you have `data` as a global object you can pass into any task needed. Make sure when you are watching files that are compiled passing objectus, you re-compile them afterwards
 
 ```javascript
 gulp.watch('dat/**/*', ['objectus','stylus','jade']);
@@ -128,7 +128,15 @@ gulp.watch('dat/**/*', ['objectus','stylus','jade']);
 
 #### [Stylus](http://stylus-lang.com/)
 
-Stylus has a rawDefine parameter you can pass 
+Stylus has a define parameter you can pass, make the 3rd option true so that it's pass properly as an object
+
+
+```javascript
+stylus(str)
+  .define('data', data, true)
+```
+
+In Gulp we use [gulp-stylus](https://github.com/stevelacy/gulp-stylus) and [accord](https://github.com/jenius/accord) using rawDefine which [I made sure works](https://github.com/stevelacy/gulp-stylus/issues/151)
 
 ```javascript
 gulp.task('stylus', function() {
