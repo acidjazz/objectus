@@ -146,7 +146,7 @@ Same simplicity, just dump our data somewhere to pick it up client-side
 ```javascript
 fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 'utf8')
 ```
-``html
+```html
 <script type="text/javascript" src="jst/data.js" />
 ```
 
