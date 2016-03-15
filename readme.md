@@ -137,14 +137,18 @@ fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 
 ```sass
 @import 'pub/jst/data.json'
 ```
-> *Note*: If you know of a more proper way to pass data in like I did with Stylus please let me know
+> *Note*: If you know of a better way of doing this please let me know
 
 ### Gulp Integration - Javascript / CoffeeScript
+
+Same simplicity, just dump our data somewhere to pick it up client-side
 
 ```javascript
 fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 'utf8')
 ```
-
+``html
+<script type="text/javascript" src="jst/data.js" />
+```
 
 #### Gulp Integration - [Jade](https://github.com/pugjs/jade) / [the new name](https://github.com/scrooloose/syntastic/pull/1704) Pug
 
@@ -159,9 +163,8 @@ gulp.task('jade', function() {
 Make sure when you are watching files that are compiled passing objectus, you re-compile them afterwards
 
 ```javascript
-  gulp.watch('dat/**/*', ['objectus','stylus','jade']);
+gulp.watch('dat/**/*', ['objectus','stylus','jade']);
 ```
-
 
 Now lets get fancy, here is a more detailed example with Stylus and Jade involving browserSync, gulp-notify, and gulp-sourcemaps
 
