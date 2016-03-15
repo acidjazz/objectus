@@ -22,7 +22,7 @@ objectus('dat/', function(error, result) {
 ```
 
 ### How it works
-Folders and file names become keys and values are the content of the files
+All YAML and JSON files in the specified folder becomes one single object.  Folders and file names become keys and values are the content 
 > *Note*: Specifying a key in a folder that is the same name of a directory will result in one overwriting the other
 
 ### Why?
