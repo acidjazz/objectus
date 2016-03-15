@@ -127,14 +127,13 @@ gulp.task('stylus', function() {
 ```
 
 
-### Gulp Integration - [SASS](https://github.com/sass/node-sass) (node-sass)
+### Gulp Integration - [sass](https://github.com/sass/node-sass) (node-sass)
 
-In your SASS task just write our data to a file somewhere for SASS to pick up
+In your sass task just write our data to a file somewhere you can `@import` it
 
 ```javascript
-  fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 'utf8')
+fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 'utf8')
 ```
-
 ```sass
 @import 'pub/jst/data.json'
 ```
@@ -143,7 +142,7 @@ In your SASS task just write our data to a file somewhere for SASS to pick up
 ### Gulp Integration - Javascript / CoffeeScript
 
 ```javascript
-  fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 'utf8')
+fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 'utf8')
 ```
 
 
