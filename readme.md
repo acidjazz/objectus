@@ -35,8 +35,13 @@ objectus('dat/', function(error, result) {
 $ npm install objectus
 ```
 
-### Basic Usage
+### How it works
 
+Folders and file names become keys and values are the content of the files
+
+> *Note*: Specifying a key in a folder that is the same name of a directory will result in one overwriting the other
+
+### Basic Usage
 
 Say you have all your config & copy in the folder `dat/` and your meta tags in `dat/meta.yml` looking like
 
@@ -95,11 +100,9 @@ guide: {
 
 ```
 
-> __Note__: Folders become keys and values are the objectus'ed files, so specifying a key in a folder the same name of a directory in the same will result in one overwriting the other
+### Integration 
 
-### Gulp Integration 
-
-
+#### Gulp
 Start with grabbing our data, then a task to do the same
 
 ```javascript
@@ -116,7 +119,17 @@ gulp.task('objectus', function() {
 });
 ```
 
-#### Gulp Integration - [Stylus](http://stylus-lang.com/)
+Now you have "data" as a global object you can pass into any task needed. Make sure when you are watching files that are compiled passing objectus, you re-compile them afterwards
+
+```javascript
+gulp.watch('dat/**/*', ['objectus','stylus','jade']);
+```
+
+
+
+#### [Stylus](http://stylus-lang.com/)
+
+Stylus has a rawDefine parameter you can pass 
 
 ```javascript
 gulp.task('stylus', function() {
@@ -127,7 +140,7 @@ gulp.task('stylus', function() {
 ```
 
 
-### Gulp Integration - [sass](https://github.com/sass/node-sass) (node-sass)
+### [sass](https://github.com/sass/node-sass) (node-sass)
 
 In your sass task we'll write to a file somewhere you can `@import` it, make sure this is done before the sass compilation
 
@@ -139,7 +152,7 @@ fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 
 ```
 > *Note*: If you know of a better way of doing this please let me know
 
-### Gulp Integration - Javascript / CoffeeScript
+### Javascript / CoffeeScript
 
 Same simplicity, just dump our data somewhere to pick it up client-side
 
@@ -150,7 +163,7 @@ fs.writeFileSync('pub/jst/data.js', "var data = " + JSON.stringify(data) + ";", 
 <script type="text/javascript" src="/jst/data.js" />
 ```
 
-#### Gulp Integration - [Jade](https://github.com/pugjs/jade) / [the new name](https://github.com/scrooloose/syntastic/pull/1704) Pug
+#### [Jade](https://github.com/pugjs/jade) / [the new name](https://github.com/scrooloose/syntastic/pull/1704) Pug
 
 ```javascript
 gulp.task('jade', function() {
@@ -159,13 +172,6 @@ gulp.task('jade', function() {
     .pipe(gulp.dest('pub'))
 });
 ```
-
-Make sure when you are watching files that are compiled passing objectus, you re-compile them afterwards
-
-```javascript
-gulp.watch('dat/**/*', ['objectus','stylus','jade']);
-```
-
 ### Detailed Gulp Example
 
 Here is a more detailed example with Stylus and Jade involving browserSync, gulp-notify, and gulp-sourcemaps
