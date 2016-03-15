@@ -21,6 +21,10 @@ objectus('dat/', function(error, result) {
 });
 ```
 
+### How it works
+Folders and file names become keys and values are the content of the files
+> *Note*: Specifying a key in a folder that is the same name of a directory will result in one overwriting the other
+
 ### Why?
 
 * Unify data that is needed in multiple preprocessors like meta tags, colors, fonts, etc.
@@ -35,11 +39,6 @@ objectus('dat/', function(error, result) {
 $ npm install objectus
 ```
 
-### How it works
-
-Folders and file names become keys and values are the content of the files
-
-> *Note*: Specifying a key in a folder that is the same name of a directory will result in one overwriting the other
 
 ### Basic Usage
 
