@@ -116,7 +116,7 @@ gulp.task('objectus', function() {
 });
 ```
 
-Now lets pass our data into a CSS preprocessor, say [Stylus](http://stylus-lang.com/)
+#### Gulp Integration - [Stylus](http://stylus-lang.com/)
 
 ```javascript
 gulp.task('stylus', function() {
@@ -126,7 +126,7 @@ gulp.task('stylus', function() {
 });
 ```
 
-How about an HTML template engine like [Jade](https://github.com/pugjs/jade) / [the new name](https://github.com/scrooloose/syntastic/pull/1704) Pug
+#### Gulp Integration - [Jade](https://github.com/pugjs/jade) / [the new name](https://github.com/scrooloose/syntastic/pull/1704) Pug
 
 ```javascript
 gulp.task('jade', function() {
@@ -143,7 +143,7 @@ Make sure when you are watching files that are compiled passing objectus, you re
 ```
 
 
-Now lets get fancy, here is a more detailed example involving browserSync, gulp-notify, and gulp-sourcemaps
+Now lets get fancy, here is a more detailed example with Stylus and Jade involving browserSync, gulp-notify, and gulp-sourcemaps
 
 ```javascript
 
