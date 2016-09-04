@@ -29,7 +29,7 @@ module.exports = function(path, callback) {
 exports.stack = function(params, callback) {
   var e, error1, file, fileExt, fileFull, files, i, len;
   if (!fs.existsSync(params.dir)) {
-    callback("Folder not found" + params.dir, null);
+    callback("Folder not found: " + params.dir, null);
     process.exit();
     return false;
   }
@@ -61,12 +61,16 @@ exports.stack = function(params, callback) {
           params.data[params.key][fileExt[0]] = yaml.safeLoad(fs.readFileSync(fileFull, "utf8"));
         } catch (error1) {
           e = error1;
-          console.log("YAML ERROR: " + fileFull);
-          console.log("YAML ERROR: " + e.message);
-          console.log(e);
+          exports.error(fileFull, e);
         }
       }
     }
   }
   return callback(false, params.data);
+};
+
+exports.error = function(file, e) {
+  console.log("YAML ERROR: " + fileFull);
+  console.log("YAML ERROR: " + e.message);
+  return console.log(e);
 };
