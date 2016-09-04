@@ -1,15 +1,15 @@
 var Promise, assign, fs, yaml;
 
-fs = require('fs');
+fs = require("fs");
 
-yaml = require('js-yaml');
+yaml = require("js-yaml");
 
-assign = Object.assign || require('object-assign');
+assign = Object.assign || require("object-assign");
 
-Promise = require('bluebird');
+Promise = require("bluebird");
 
 module.exports = function(path, callback) {
-  return exports.stack(path, {}, 'root', function(error, result) {
+  return exports.stack(path, {}, "root", function(error, result) {
     var data, root;
     if (error) {
       callback(error, null);
@@ -25,14 +25,14 @@ module.exports = function(path, callback) {
 exports.stack = function(dir, data, key, callback) {
   var e, error1, file, fileExt, fileFull, files, i, len;
   if (!fs.existsSync(dir)) {
-    callback('Folder not found' + dir, null);
+    callback("Folder not found" + dir, null);
     process.exit();
     return false;
   }
   files = fs.readdirSync(dir);
   for (i = 0, len = files.length; i < len; i++) {
     file = files[i];
-    fileFull = dir + '/' + file;
+    fileFull = dir + "/" + file;
     if (fs.lstatSync(fileFull).isDirectory()) {
       this.stack(fileFull, data, file, function(error, result) {
         if (error) {
@@ -41,20 +41,20 @@ exports.stack = function(dir, data, key, callback) {
         return data = assign(data, result);
       });
     } else {
-      fileExt = file.split('.');
+      fileExt = file.split(".");
       if (!(key in data)) {
         data[key] = {};
       }
-      if (fileExt[1] === 'json') {
-        data[key][fileExt[0]] = JSON.parse(fs.readFileSync(fileFull, 'utf8'));
+      if (fileExt[1] === "json") {
+        data[key][fileExt[0]] = JSON.parse(fs.readFileSync(fileFull, "utf8"));
       }
-      if (fileExt[1] === 'yml' || fileExt[1] === 'yaml') {
+      if (fileExt[1] === "yml" || fileExt[1] === "yaml") {
         try {
-          data[key][fileExt[0]] = yaml.safeLoad(fs.readFileSync(fileFull, 'utf8'));
+          data[key][fileExt[0]] = yaml.safeLoad(fs.readFileSync(fileFull, "utf8"));
         } catch (error1) {
           e = error1;
-          console.log('YAML ERROR: ' + fileFull);
-          console.log('YAML ERROR: ' + e.message);
+          console.log("YAML ERROR: " + fileFull);
+          console.log("YAML ERROR: " + e.message);
           console.log(e);
         }
       }
