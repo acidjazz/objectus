@@ -5,7 +5,7 @@ assign = Object.assign || require("object-assign")
 Promise = require "bluebird"
 
 module.exports = (path, callback) ->
-  exports.stack path, {}, "root", (error, result) ->
+  exports.stack dir: path, data: {}, key: "root", (error, result) ->
     if error
       callback error, null
       return false
@@ -14,37 +14,35 @@ module.exports = (path, callback) ->
     data = assign root, result
     callback false, data
 
-exports.stack = (dir, data, key, callback) ->
+exports.stack = (params, callback) ->
 
-  if !fs.existsSync(dir)
-    callback("Folder not found" + dir, null)
+  if !fs.existsSync(params.dir)
+    callback("Folder not found" + params.dir, null)
     process.exit()
     return false
 
-  files = fs.readdirSync(dir)
+  files = fs.readdirSync(params.dir)
 
   for file in files
-    fileFull = dir + "/" + file
+    fileFull = params.dir + "/" + file
 
     if fs.lstatSync(fileFull).isDirectory()
-      this.stack fileFull, data, file, (error, result) ->
+      exports.stack dir: fileFull, data: params.data, key: file, (error, result) ->
         callback error, null if error
-        data = assign data, result
+        params.data = assign params.data, result
     else
       fileExt = file.split "."
-      data[key] = {} if !(key of data)
+      params.data[params.key] = {} if !(params.key of params.data)
 
 
       if fileExt[1] is "json"
-        data[key][fileExt[0]] = JSON.parse fs.readFileSync fileFull, "utf8"
+        params.data[params.key][fileExt[0]] = JSON.parse fs.readFileSync fileFull, "utf8"
       if fileExt[1] is "yml" or fileExt[1] is "yaml"
         try
-          data[key][fileExt[0]] = yaml.safeLoad fs.readFileSync fileFull, "utf8"
+          params.data[params.key][fileExt[0]] = yaml.safeLoad fs.readFileSync fileFull, "utf8"
         catch e
           console.log "YAML ERROR: " + fileFull
           console.log "YAML ERROR: " + e.message
           console.log e
 
-  callback false, data
-
-
+  callback false, params.data
