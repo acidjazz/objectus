@@ -22,11 +22,7 @@ describe 'output', ->
   before ->
     @objectus = require '../index.js'
 
-    
   it 'should render an object', (done) ->
-
-    @objectus 'test/dat', (error, result) ->
-      #JSON.stringify(result) == JSON.stringify(obj)
+    @objectus 'test/config', (error, result) ->
       expect(result).to.deep.equal(obj)
       done()
-

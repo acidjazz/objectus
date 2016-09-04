@@ -4,14 +4,14 @@
   "description": "Node module that compiles an infinite tree of JSON and YML files into one object",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/index.coffee"
+    "test": "mocha test/index.coffee && istanbul report text-summary lcov"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/acidjazz/objectus.git"
   },
   "keywords": [
-    "object",
+    "objectus",
     "object",
     "objectify",
     "yaml",
@@ -28,11 +28,14 @@
   "homepage": "https://github.com/acidjazz/objectus#readme",
   "devDependencies": {
     "chai": "^3.4.1",
-    "gulp-coffee": "^2.3.1",
+    "coffee-coverage": "^1.0.1",
     "coffee-script": "latest",
-    "mocha": "2.x",
-    "coveralls": "2.x",
-    "gulp-notify": "^2.2.0"
+    "coveralls": "^2.11.12",
+    "gulp-coffee": "^2.3.2",
+    "gulp-notify": "^2.2.0",
+    "istanbul": "^0.4.5",
+    "mocha": "3.x",
+    "mocha-lcov-reporter": "^1.2.0"
   },
   "dependencies": {
     "bluebird": "^3.0.6",
