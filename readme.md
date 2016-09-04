@@ -9,6 +9,7 @@ Compile a recursive directory tree of JSON and YML files into an object
 [![Dependency Status](https://gemnasium.com/acidjazz/objectus.svg)](https://gemnasium.com/acidjazz/objectus)
 ![Licence](https://img.shields.io/npm/l/objectus.svg?style=flat-square&label=licence)
 [![Coverage Status](https://coveralls.io/repos/github/acidjazz/objectus/badge.svg?branch=master)](https://coveralls.io/github/acidjazz/objectus?branch=master)
+[![codecov](https://codecov.io/gh/acidjazz/objectus/branch/master/graph/badge.svg)](https://codecov.io/gh/acidjazz/objectus)
 
 [![NPM](https://nodei.co/npm/objectus.png)](https://npmjs.org/package/objectus)
 
