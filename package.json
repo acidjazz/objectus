@@ -2,9 +2,9 @@
   "name": "objectus",
   "version": "1.1.1",
   "description": "Node module that compiles an infinite tree of JSON and YML files into one object",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "mocha test/index.coffee && istanbul report text-summary lcov"
+    "test": "mocha && istanbul report text-summary lcov"
   },
   "repository": {
     "type": "git",

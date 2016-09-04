@@ -18,9 +18,8 @@ describe 'output', ->
       title: 'content title'
       data: [ 'test', 'one', 'two' ]
 
-
   before ->
-    @objectus = require '../index.js'
+    @objectus = require '../src/index.js'
 
   it 'should render an object', (done) ->
     @objectus 'test/config', (error, result) ->
