@@ -1,4 +1,3 @@
-
 fs = require "fs"
 yaml = require "js-yaml"
 assign = Object.assign || require("object-assign")
@@ -41,8 +40,11 @@ exports.stack = (params, callback) ->
         try
           params.data[params.key][fileExt[0]] = yaml.safeLoad fs.readFileSync fileFull, "utf8"
         catch e
-          console.log "YAML ERROR: " + fileFull
-          console.log "YAML ERROR: " + e.message
-          console.log e
+          exports.error(fileFull, e)
 
   callback false, params.data
+
+exports.error = (file, e) ->
+  console.log "YAML ERROR: " + fileFull
+  console.log "YAML ERROR: " + e.message
+  console.log e
