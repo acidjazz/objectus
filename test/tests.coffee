@@ -1,5 +1,7 @@
 expect = require('chai').expect
 
+objectus = require '../src/index.coffee'
+
 describe 'output', ->
   obj =
     colors:
@@ -18,10 +20,7 @@ describe 'output', ->
       title: 'content title'
       data: [ 'test', 'one', 'two' ]
 
-  before ->
-    @objectus = require '../src/index.js'
 
-  it 'should render an object', (done) ->
-    @objectus 'test/config', (error, result) ->
+  it 'should render an object', ->
+    objectus 'test/config', (error, result) ->
       expect(result).to.deep.equal(obj)
-      done()
