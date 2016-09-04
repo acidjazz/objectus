@@ -18,7 +18,6 @@ exports.stack = (params, callback) ->
   if !fs.existsSync(params.dir)
     callback("Folder not found: " + params.dir, null)
     process.exit()
-    return false
 
   files = fs.readdirSync(params.dir)
 
