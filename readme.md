@@ -17,7 +17,7 @@ Compile a recursive directory tree of JSON and YML files into an object
 ```javascript
 var objectus = require('objectus');
 
-objectus('dat/', function(error, result) {
+objectus('config/', function(error, result) {
   if (error) { console.log(error); }
   console.log(result);
 });
@@ -30,7 +30,7 @@ All YAML and JSON files in the specified folder becomes one single object.  Fold
 ### Why?
 
 * Unify data that is needed in multiple preprocessors like meta tags, colors, fonts, etc.
-  * Ex: I define [colors](https://github.com/acidjazz/sake/blob/master/dat/colors.yml) and [fonts](https://github.com/acidjazz/sake/blob/master/dat/fonts.yaml) to [populate](https://github.com/acidjazz/sake/blob/master/sty/guide.styl#L4-L10) a [style guide](http://www.designsakestudio.com/guide/), and then use them throughout the [HTML](https://github.com/acidjazz/sake/blob/master/tpl/guide/index.jade#L11) and [CSS](https://github.com/acidjazz/sake/blob/master/sty/main.styl#L18) preprocessors
+  * Ex: I define [colors](https://github.com/acidjazz/sake/blob/master/config/colors.yml) and [fonts](https://github.com/acidjazz/sake/blob/master/config/fonts.yaml) to [populate](https://github.com/acidjazz/sake/blob/master/sty/guide.styl#L4-L10) a [style guide](http://www.designsakestudio.com/guide/), and then use them throughout the [HTML](https://github.com/acidjazz/sake/blob/master/tpl/guide/index.jade#L11) and [CSS](https://github.com/acidjazz/sake/blob/master/sty/main.styl#L18) preprocessors
 * Allow the possibility of others to contribute who are not familiar with the technology in use
   * Give copywriters access to their copy seamlessly
   * Give designers access to font and color values seamlessly
@@ -44,7 +44,7 @@ $ npm install objectus
 
 ### Basic Usage
 
-Say you have all your config & copy in the folder `dat/` and your meta tags in `dat/meta.yml` looking like
+Say you have all your config & copy in the folder `config/` and your meta tags in `config/meta.yml` looking like
 
 ```yaml
 ---
@@ -57,7 +57,7 @@ tags:
 If you ran 
 
 ```javascript
-objectus('dat/', function(error, result) {
+objectus('config/', function(error, result) {
   console.log(result);
 });
 ```
@@ -74,7 +74,7 @@ meta: {
 }
 ```
 
-Now throw in some colors you need accessed in HTML and CSS in `dat/guide/` called `colors.yml` and
+Now throw in some colors you need accessed in HTML and CSS in `config/guide/` called `colors.yml` and
 
 ```yml
 ---
@@ -110,10 +110,10 @@ Start with grabbing our data, then a task to do the same
 
 var objectus = reuqire('objectus');
 
-objectus('dat/', function(error, result) { data = result; });
+objectus('config/', function(error, result) { data = result; });
 
 gulp.task('objectus', function() {
-  objectus('dat/', function(error, result) {
+  objectus('config/', function(error, result) {
     data = result;
   });
   return true;
@@ -123,7 +123,7 @@ gulp.task('objectus', function() {
 Now you have `data` as a global object you can pass into any task needed. Make sure when you are watching files that are compiled passing objectus, you fire your objectus task first, so they get the updated data
 
 ```javascript
-gulp.watch('dat/**/*', ['objectus','stylus','jade']);
+gulp.watch('config/**/*', ['objectus','stylus','jade']);
 ```
 
 #### [Stylus](http://stylus-lang.com/)
@@ -193,7 +193,7 @@ var sourcemaps = require('gulp-sourcemaps');
 
 var objectus = require('objectus');
 
-objectus('dat/', function(error, result) {
+objectus('config/', function(error, result) {
   if (error) {
     notify(error);
   }
@@ -201,7 +201,7 @@ objectus('dat/', function(error, result) {
 });
 
 gulp.task('objectus', function() {
-  objectus('dat/', function(error, result) {
+  objectus('config/', function(error, result) {
     if (error) {
       notify(error);
     }
@@ -244,7 +244,7 @@ gulp.task('sync', function() {
     }
   });
 
-  gulp.watch('dat/**/*', ['objectus','stylus','jade']);
+  gulp.watch('config/**/*', ['objectus','stylus','jade']);
   gulp.watch('sty/**/*.styl', ['stylus']);
   gulp.watch('tpl/**/*.jade', ['jade']);
 
