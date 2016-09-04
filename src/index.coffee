@@ -45,6 +45,5 @@ exports.stack = (params, callback) ->
   callback false, params.data
 
 exports.error = (file, e) ->
-  console.log "YAML ERROR: " + fileFull
+  console.log "YAML ERROR: " + file
   console.log "YAML ERROR: " + e.message
-  console.log e
