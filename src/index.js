@@ -31,7 +31,6 @@ exports.stack = function(params, callback) {
   if (!fs.existsSync(params.dir)) {
     callback("Folder not found: " + params.dir, null);
     process.exit();
-    return false;
   }
   files = fs.readdirSync(params.dir);
   for (i = 0, len = files.length; i < len; i++) {
@@ -70,7 +69,6 @@ exports.stack = function(params, callback) {
 };
 
 exports.error = function(file, e) {
-  console.log("YAML ERROR: " + fileFull);
-  console.log("YAML ERROR: " + e.message);
-  return console.log(e);
+  console.log("YAML ERROR: " + file);
+  return console.log("YAML ERROR: " + e.message);
 };
