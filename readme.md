@@ -10,10 +10,9 @@ Compile a recursive directory tree of JSON and YML files into an object
 [![Dependency Status](https://gemnasium.com/acidjazz/objectus.svg)](https://gemnasium.com/acidjazz/objectus)
 [![Coverage Status](https://coveralls.io/repos/github/acidjazz/objectus/badge.svg?branch=master)](https://coveralls.io/github/acidjazz/objectus?branch=master)
 [![codecov](https://codecov.io/gh/acidjazz/objectus/branch/master/graph/badge.svg)](https://codecov.io/gh/acidjazz/objectus)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/80cf9f05eb27439cb06f3739e268c0c8)](https://www.codacy.com/app/acidjazz/objectus?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=acidjazz/objectus&amp;utm_campaign=Badge_Grade)
 [![Code Climate](https://codeclimate.com/github/acidjazz/objectus/badges/gpa.svg)](https://codeclimate.com/github/acidjazz/objectus)
 
-[![NPM](https://nodei.co/npm/objectus.png)](https://npmjs.org/package/objectus)
+[![NPM](https://nodei.co/npm/objectus.png)](https://nodei.co/npm/objectus/)
 
 
 ```javascript
